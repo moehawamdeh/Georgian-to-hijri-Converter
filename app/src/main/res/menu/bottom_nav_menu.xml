@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_event_list"
+        android:icon="@drawable/ic_baseline_bookmark_24"
+        android:title="@string/event_list" />
+
+    <item
+        android:id="@+id/navigation_calendar"
+        android:icon="@drawable/ic_baseline_event_24"
+        android:title="@string/calendar" />
+
+</menu>

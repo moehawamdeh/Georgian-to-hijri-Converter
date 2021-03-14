@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<com.google.android.material.button.MaterialButton xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/button_create"
+    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="@string/done"
+    android:enabled="false"
+    android:clickable="false"
+    android:textColor="@color/colorSuccess"
+    android:drawableEnd="@drawable/ic_check_circle_outline_24px"
+    android:drawableTint="@color/colorSuccess"
+    android:paddingEnd="32dp"
+    android:textAllCaps="false"
+    android:fontFamily="@font/roboto"
+    app:cornerRadius="100sp"
+    app:strokeWidth="2dp"
+
+    app:strokeColor="@color/colorSuccess"
+    android:layout_marginBottom="16dp"
+    tools:ignore="RtlSymmetry" />

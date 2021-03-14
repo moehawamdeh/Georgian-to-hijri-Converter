@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3c5aae</color>
+    <color name="colorSecondary">#52b0d3</color>
+    <color name="colorListItemPurple">#783CAE</color>
+    <color name="colorListItemRed">#AE3C4C</color>
+    <color name="colorListItemBlue">#3C47AE</color>
+    <color name="colorListItemCyan">#3CAE9F</color>
+    <color name="colorListItemGreen">#44AE3C</color>
+    <color name="colorListItemOrange">#C67000</color>
+    <color name="colorListItemGrey">#5C5C5C</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="colorTextOnPrimary">#FFFFFF</color>
+    <color name="colorTextOnLight">#000000</color>
+    <color name="colorContainer">#F5F5F5</color>
+    <color name="colorSuccess">#2D9C31</color>
+    <color name="colorSelectDelete">#5EFA5757</color>
+    <color name="colorDanger">#DD0000</color>
+
+</resources>

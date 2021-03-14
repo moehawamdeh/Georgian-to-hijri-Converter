@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_event_list">
+
+    <fragment
+        android:id="@+id/navigation_event_list"
+        android:name="com.ts.grp.g2hdateconverter.view.EventListFragment"
+        android:label="@string/event_list"
+        tools:layout="@layout/fragment_event_list" />
+
+    <fragment
+        android:id="@+id/navigation_calendar"
+        android:name="com.ts.grp.g2hdateconverter.view.CalendarFragment"
+        android:label="@string/calendar"
+        tools:layout="@layout/fragment_calendar" />
+
+
+</navigation>

@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <import type="androidx.core.content.ContextCompat"/>
+        <variable
+            name="event"
+            type="com.ts.grp.g2hdateconverter.repository.model.Event" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.EventDetailsActivity">
+
+        <com.google.android.material.progressindicator.CircularProgressIndicator
+            android:id="@+id/progress_inside"
+            style="@style/Widget.MaterialComponents.CircularProgressIndicator.Medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:indeterminate="true"
+            android:translationZ="22dp"
+            android:visibility="invisible"
+
+            app:indicatorColor="@color/colorPrimary"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.94"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/app_bar_expandable"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:animateLayoutChanges="true"
+            android:orientation="vertical"
+            android:padding="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="54dp"
+                android:layout_height="54dp"
+                android:layout_gravity="start"
+                android:tint="@color/colorPrimary"
+                android:src="@drawable/ic_baseline_swap_calls_24" />
+
+            <TextView
+                android:id="@+id/text_app_bar_header"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="16dp"
+                android:fontFamily="@font/roboto"
+                android:textColor="@color/colorPrimary"
+                android:textSize="28sp"
+                android:text="@{event.hijriDate.date}"
+                tools:text="14-02-1436"
+
+                />
+
+            <TextView
+                android:id="@+id/text_app_bar_sub_header"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/roboto"
+                android:textColor="@color/colorPrimary"
+                android:textSize="28sp"
+                android:text="@{event.hijriDate.weekday.en+' '+event.hijriDate.month.en}"
+                tools:text="Alahad Safar" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_appBar_action"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto"
+                android:text="@string/make_event"
+                android:visibility="gone"
+                app:backgroundTint="@color/colorSecondary"
+                app:cornerRadius="100sp" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:background="@drawable/bottom_collapse_shape"
+            android:backgroundTint="@color/colorPrimary"
+            app:layout_constraintTop_toBottomOf="@id/app_bar_expandable"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+
+            android:layout_height="0dp">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_gravity="top"
+                app:layout_constraintBottom_toTopOf="@id/group_buttons"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="8dp"
+                android:padding="16dp"
+                android:orientation="vertical"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:hint="@string/event_title"
+                    app:counterTextColor="@color/white"
+                    app:counterEnabled="true"
+                    app:boxCornerRadiusTopStart="@dimen/dp_24"
+                    app:boxCornerRadiusTopEnd="@dimen/dp_24"
+                    app:errorEnabled="true"
+                    app:errorTextColor="@color/white"
+                    app:counterMaxLength="50"
+
+                    >
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/text_title"
+                        android:text="@{event.name}"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="text"
+                        android:maxLength="50"
+                        android:textSize="20sp"
+                        android:singleLine="true" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:hint="@string/event_description"
+                    app:counterEnabled="true"
+                    app:counterTextColor="@color/white"
+                    app:counterMaxLength="200">
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/text_description"
+                        android:text="@{event.description}"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="top"
+                        android:inputType="textMultiLine"
+                        android:maxLength="200"
+                        android:maxLines="3"
+                        android:minLines="3" />
+                </com.google.android.material.textfield.TextInputLayout>
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/group_buttons"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/bottom_collapse_shape"
+                android:layout_gravity="bottom"
+                android:elevation="16dp"
+                android:padding="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/button_save"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="64dp"
+                    android:text="@string/save"
+                    android:fontFamily="@font/roboto"
+                    app:cornerRadius="100sp"
+                    android:drawableEnd="@drawable/ic_baseline_save_24"
+                    android:paddingHorizontal="32dp"
+                    app:backgroundTint="@color/colorSecondary"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/button_delete"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="64dp"
+                    android:text="@string/delete"
+                    android:fontFamily="@font/roboto"
+                    app:cornerRadius="100sp"
+                    android:paddingHorizontal="32dp"
+                    android:drawableEnd="@drawable/ic_baseline_delete_forever_24"
+                    app:backgroundTint="@color/colorDanger"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
